@@ -37,8 +37,6 @@ namespace Maslova_task2_Snowfall
             animTimer.Start();
         }
 
-        int fieldRotation = 0;
-        bool rotateClockWise = false;
         /// <summary>
         /// Animate snowflakes
         /// Анимировать снежинки

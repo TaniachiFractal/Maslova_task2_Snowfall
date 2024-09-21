@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
-using System.Text;
 
 namespace Maslova_task2_Snowfall.Classes
 {
@@ -23,6 +21,7 @@ namespace Maslova_task2_Snowfall.Classes
         /// </summary>
         public readonly static Image SnowforestImg = Properties.Resources.snowforest;
 
+        #region fields
         /// <summary>
         /// x coord of a snowflake
         /// координата x снежинки
@@ -53,9 +52,11 @@ namespace Maslova_task2_Snowfall.Classes
         /// Начальная скорость падения
         /// </summary>
         private readonly int startFallSpeed;
+        #endregion
 
         /// <summary>
         /// Create a snowflake with random size, location, speed according to the target field size
+        /// Создать снежинку случайного размера, местоположения и скорости в соответствии с размером целевого поля.
         /// </summary>
         public Snowflake(int fieldHeight, int fieldWidth, Random rnd)
         {
@@ -67,6 +68,7 @@ namespace Maslova_task2_Snowfall.Classes
             flyRotation = 0.3f * rnd.Next(-1, 1);
         }
 
+
         /// <summary>
         /// The list of snowflakes
         /// Лист снежинок
@@ -74,19 +76,17 @@ namespace Maslova_task2_Snowfall.Classes
         private static List<Snowflake> snowflakes;
         /// <summary>
         /// Generate the list of snowflakes
+        /// Сгенерировать лист снежинок
         /// </summary>
-        public static List<Snowflake> Snowflakes(int count, int fieldHeight, int fieldWidth)
+        public static void Snowflakes(int count, int fieldHeight, int fieldWidth)
         {
-            if (snowflakes == null)
+            var rnd = new Random();
+            snowflakes = new List<Snowflake>();
+            for (var i = 0; i < count; i++)
             {
-                var rnd = new Random();
-                snowflakes = new List<Snowflake>();
-                for (var i = 0; i < count; i++)
-                {
-                    snowflakes.Add(new Snowflake(fieldHeight, fieldWidth, rnd));
-                }
+                snowflakes.Add(new Snowflake(fieldHeight, fieldWidth, rnd));
             }
-            return snowflakes;
+
         }
         /// <summary>
         /// Get snowflake list
@@ -96,6 +96,7 @@ namespace Maslova_task2_Snowfall.Classes
         {
             return snowflakes;
         }
+
 
         /// <summary>
         /// Move the snowflake down or teleport it to the top

@@ -48,7 +48,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Classes\Snowflake.cs" />
+    <Compile Include="Snowflake.cs" />
     <Compile Include="SnowfallForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -88,8 +88,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\snowflake.ico" />
-    <Content Include="snowflake.ico" />
-    <Content Include="snowflakе.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
